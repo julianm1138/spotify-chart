@@ -1,13 +1,15 @@
 replicaCount: 1
 
 image:
-  repository: spotifyacr123.azurecr.io/spotify-clone
+  repository: spotify
   tag: latest
   pullPolicy: IfNotPresent
 
+
 service:
-  type: ClusterIP
-  port: 3000
+  type: NodePort
+  port: 80
+  nodePort: 30001
 
 resources:
   limits:
@@ -18,5 +20,7 @@ resources:
     memory: 128Mi
 
 ingress:
-  enabled: true
+  enabled: false
   host: spotify.local
+imagePullSecrets:
+  - name: acr-secret
