@@ -1,7 +1,7 @@
 # Spotify Helm Chart
 
 A Helm chart for deploying the React + TypeScript Spotify Clone into a Kubernetes cluster (KIND, Minikube, or cloud-based).  
-This chart packages all Kubernetes manifests—Deployment, Service, and optional Ingress—into a reusable, configurable application release.
+This chart packages all Kubernetes manifests (Deployment, Service, and optional Ingress) into a reusable, configurable application release.
 
 ## Features
 
