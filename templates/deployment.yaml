@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: { { include "spotify-clone.fullname" . } }
+  name: {{ include "spotify-clone.fullname" . | quote }}
   labels:
-    app: { { include "spotify-clone.name" . } }
+    app: {{ include "spotify-clone.name" . | quote }}
 spec:
-  replicas: { { .Values.replicaCount } }
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: { { include "spotify-clone.name" . } }
+      app: {{ include "spotify-clone.name" . }}
   template:
     metadata:
       labels:
-        app: { { include "spotify-clone.name" . } }
+        app: {{ include "spotify-clone.name" . }}
     spec:
       containers:
         - name: spotify-clone
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: { { .Values.image.pullPolicy } }
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 80
           resources:
             limits:
-              cpu: { { .Values.resources.limits.cpu } }
-              memory: { { .Values.resources.limits.memory } }
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
             requests:
-              cpu: { { .Values.resources.requests.cpu } }
-              memory: { { .Values.resources.requests.memory } }
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}

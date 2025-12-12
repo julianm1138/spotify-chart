@@ -1,13 +1,13 @@
 replicaCount: 1
 
 image:
-  repository: your-dockerhub-or-acr-image
+  repository: spotifyacr123.azurecr.io/spotify-clone
   tag: latest
   pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
-  port: 80
+  port: 3000
 
 resources:
   limits:
@@ -18,5 +18,5 @@ resources:
     memory: 128Mi
 
 ingress:
-  enabled: false
+  enabled: true
   host: spotify.local

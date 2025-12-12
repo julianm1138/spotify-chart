@@ -31,3 +31,7 @@ helm upgrade spotify-release ./spotify-chart
 helm uninstall spotify-release
 
 ```
+
+![App running in Google Chrome](screenshots/helmscreen1.png)
+![App running in Google Chrome](screenshots/helmgetpods.png)
+![App running in Google Chrome](screenshots/helmgetsvc.png)

@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: { { include "spotify-clone.fullname" . } }
+  name: {{ include "spotify-clone.fullname" . }}
 spec:
-  type: { { .Values.service.type } }
+  type: {{ .Values.service.type }}
   selector:
-    app: { { include "spotify-clone.name" . } }
+    app: {{ include "spotify-clone.name" . }}
   ports:
     - protocol: TCP
-      port: { { .Values.service.port } }
+      port: {{ .Values.service.port }}
       targetPort: 80
